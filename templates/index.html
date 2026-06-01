@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Management System</title>
+
+    <link rel="stylesheet" href="{{url_for('static',filename='style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <div class="card">
+            <h1>Welcome</h1>
+            <p>Select your Portal</p>
+
+            <div class="buttons">
+                <button onclick="selectPortal('student')">Student</button>
+                <button onclick="selectPortal('teacher')">Teacher</button>
+           </div>
+
+           <div id="loginForm" style="display:none;">
+                <form id="loginFormElement" action="/studentlogin" method="post">
+                    <div class="input_box_login">
+                        <input type="text" id="username" name="userid" placeholder="Roll no" class="inputlogin">
+                    </div>
+
+                    <div class="input_box_login">
+                        <input type="password" id="password" name="password" placeholder="Password" class="inputlogin">
+                    </div>
+
+                    <button>Login</button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+<script>
+
+    function selectPortal(role){
+
+    document.getElementById("loginForm").style.display = "block";
+
+    let username = document.getElementById("username");
+    let form = document.getElementById("loginFormElement");
+
+    if(role == "student"){
+
+        username.placeholder = "Roll no";
+        form.action = "/studentlogin";
+
+    }
+
+    else{
+
+        username.placeholder = "Username";
+        form.action = "/teacherlogin";
+
+    }
+
+}
+
+</script>
+</body>
+
+</html>

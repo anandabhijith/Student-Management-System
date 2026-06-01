@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Dashboard</title>
+
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="dashboard">
+        <div class="sidebar">
+            <h2>Teacher Panel</h2>
+
+            <button onclick="showSection('addstudent')">Add Student</button>
+            <button onclick="showSection('manageattendance')">Manage Attendance</button>
+            <button onclick="showSection('updatemarks')">Update Marks</button>
+            <a href="/viewstudent" class="sidebar-btn">View Students</a>
+            <button onclick="showSection('deletestudent')">Delete Student</button>
+            
+            <a href="/" class="logout-btn">Logout</a>
+
+        </div>
+        <div class="content">
+            <div id="addstudent" class="section">
+                <h1>Add Student</h1>
+                <form action="/addstudent" method="post">
+                    <div class="input-box">
+                        <input
+                            type="text"
+                            name="name"
+                            placeholder="Name"
+                            required
+                        >
+                    </div>
+                    <div class="input-box">
+                        <input
+                            type="text"
+                            name="roll"
+                            placeholder="Roll no"
+                            required
+                        >
+                    </div>
+                    <div class="input-box">
+                        <input
+                            type="text"
+                            name="department"
+                            placeholder="Department"
+                            required
+                        >
+                    </div>
+                    <div>
+                        <button class="submitbtn">Submit</button>
+                    </div>
+                </form>
+
+                
+            </div>
+            <div id="manageattendance" class="section">
+                <h1>Manage Attendance</h1>
+                <form action="/manageattendance" method="post">
+                    <div class="input-box">
+                        <input
+                            type="text"
+                            name="roll"
+                            placeholder="Roll no"
+                            required
+                        >
+                    </div>
+                    <div class="input-box">
+                        <input
+                            type="text"
+                            name="attendance"
+                            placeholder="Attendance"
+                            required
+                        >
+                    </div>
+                    <div>
+                        <button class="submitbtn">Update</button>
+                    </div>
+                </form>
+                
+            </div>
+            <div id="updatemarks" class="section">
+                <h1>Update Marks</h1>
+                <form action="/updatemarks" method="post">
+                    <div class="input-box">
+                        <input
+                            type="text"
+                            name="roll"
+                            placeholder="Roll no"
+                            required
+                        >
+                    </div>
+                    <div class="input-box">
+                        <input
+                            type="text"
+                            name="subject"
+                            placeholder="Subject"
+                            required
+                        >
+                    </div>
+                    <div class="input-box">
+                        <input
+                            type="number"
+                            name="marks"
+                            placeholder="Marks"
+                            required
+                        >
+                    </div>
+                    <div>
+                        <button class="submitbtn">Update</button>
+                    </div>
+                </form>
+            </div>
+
+            <div id="viewstudent" class="section">
+                <h1>View Student</h1>
+                <table>
+                    <tr>
+                        <th>id</th>
+                        <th>Name</th>
+                        <th>Roll no</th>
+                        <th>Department</th>
+                        <th>Attendance</th>
+                        <th>DSA</th>
+                        <th>Java</th>
+                        <th>Python</th>
+                        <th>CN</th>
+                    </tr>
+                    {% for student in students %}
+                    <tr>
+                        <td>{{ student[0] }}</td>
+                        <td>{{ student[1] }}</td>
+                        <td>{{ student[2] }}</td>
+                        <td>{{ student[3] }}</td>
+                        <td>{{ student[4] }}</td>
+                        <td>{{ student[5] }}</td>
+                        <td>{{ student[6] }}</td>
+                        <td>{{ student[7] }}</td>
+                        <td>{{ student[8] }}</td>
+                    </tr>
+                    {% endfor %}
+                </table>
+            </div>
+             <div id="deletestudent" class="section">
+                <h1>Delete Student</h1>
+                <form action="/deletestudent" method="post">
+                    <div class="input-box">
+                        <input
+                            type="text"
+                            name="roll"
+                            placeholder="Roll no"
+                            required
+                        >
+                    </div>
+                    <div>
+                        <button class="submitbtn">Delete</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+
+    </div>
+    <script>
+
+        function showSection(sectionId){
+
+            let sections = document.querySelectorAll('.section');
+
+            sections.forEach(section => {
+                section.style.display = 'none';
+            });
+
+            document.getElementById(sectionId).style.display = 'block';
+        }
+
+        showSection('{{ active_section if active_section else "addstudent" }}');
+
+    </script>
+</body>
+</html>

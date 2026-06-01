@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Dashboard</title>
+
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+
+    <div class="dashboard">
+
+        <div class="sidebar">
+            <h2>Student Panel</h2>
+
+            <button onclick="showSection('attendance')">Attendance</button>
+
+            <button onclick="showSection('marks')">Marks</button>
+
+            <button onclick="showSection('profile')">Profile</button>
+
+            <a href="/" class="logout-btn">Logout</a>        
+        </div>
+
+        <div class="content">
+
+            <div id="attendance" class="section">
+                <h1>Attendance</h1>
+                <div class="attendance-value">
+
+                    <p>Your attendance is {{ student[4] }}%</p>        
+                </div>    
+            </div>
+
+            <div id="marks" class="section">
+                <h1>Marks</h1>
+                <div class="marks-card">
+                    <p>DSA: {{ student[5] }}</p>
+                    <p>Java: {{ student[6] }}</p>
+                    <p>Python: {{ student[7] }}</p>
+                    <p>CN: {{ student[8] }}</p>    
+                </div>
+            </div>
+
+            <div id="profile" class="section">
+                <h1>Profile</h1>
+                <div class="profile-card">
+
+                    <p>Name: {{ student[1] }}</p>
+                    <p>Roll No: {{ student[2] }}</p>
+                    <p>Department: {{ student[3] }}</p>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+
+    <script>
+
+        function showSection(sectionId){
+
+            let sections = document.querySelectorAll('.section');
+
+            sections.forEach(section => {
+                section.style.display = 'none';
+            });
+
+            document.getElementById(sectionId).style.display = 'block';
+        }
+
+        showSection('attendance');
+
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,278 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+
+body{
+    background: #0f172a;
+    color: white;
+    min-height: 100vh;
+}
+
+nav{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 60px;
+    background: rgba(255,255,255,0.05);
+}
+
+.nav-links a{
+    color: white;
+    text-decoration: none;
+    margin-left: 20px;
+}
+
+.container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.card{
+    background: rgba(255,255,255,0.08);
+    padding: 40px;
+    border-radius: 20px;
+    text-align: center;
+    width: 500px;
+}
+.card:hover{
+    transform:translateY(-5px);
+}
+.card h1{
+    margin-bottom: 20px;
+}
+
+.card p{
+    margin-bottom: 30px;
+    color: #cbd5e1;
+}
+
+button{
+    background-color: #50b16b;
+    color: #12345e;
+    border-radius: 10px;
+    width: 200px;
+    height: 40px;
+    font-size: 15px;
+    font-weight: bold;
+        align-self: center;
+    margin-top: 15px;
+}
+
+.buttons{
+    display:flex;
+    justify-content:center;
+    gap:15px;
+}
+.btn{
+    text-decoration: none;
+    background: #3b82f6;
+    color: white;
+    padding: 12px 20px;
+    border-radius: 10px;
+    transition: 0.3s;
+    
+}
+
+.btn:hover{
+    background: #2563eb;
+}
+
+.dashboard{
+    display: flex;
+    min-height: 100vh;
+}
+
+.sidebar{
+    width: 250px;
+    background: rgba(255,255,255,0.05);
+    padding: 30px;
+
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.sidebar h2{
+    margin-bottom: 20px;
+}
+
+.sidebar button{
+    padding: 12px;
+    border: none;
+    border-radius: 10px;
+    background: #1e293b;
+    color: white;
+    cursor: pointer;
+    transition: 0.3s;
+}
+.sidebar-btn{
+    padding: 12px;
+    border: none;
+    border-radius: 10px;
+    background: #1e293b;
+    color: white;
+    cursor: pointer;
+    transition: 0.3s;
+    text-decoration: none;
+    text-align: center;
+    font-size: 15px;
+    font-weight: bold;
+}
+.sidebar-btn:hover{
+    background: #3b82f6;
+}
+.sidebar-bton:focus{
+    background: #3b82f6;
+}
+.sidebar button:hover{
+    background: #3b82f6;
+}
+.sidebar button:focus{
+    background: #3b82f6;
+}
+
+.content{
+    flex: 1;
+    padding: 40px;
+}
+
+.section{
+    background: rgba(255,255,255,0.08);
+    padding: 30px;
+    border-radius: 20px;
+    gap:10px;
+    margin-top: 15px;
+}
+.logout-btn{
+    text-decoration: none;
+    background: crimson;
+    color: white;
+    padding: 12px;
+    border-radius: 10px;
+    text-align: center;
+    transition: 0.3s;
+}
+
+.logout-btn:hover{
+    background: darkred;
+}
+
+input{
+     border-radius: 10px;
+    border:1px solid #738eb5;
+    font-size: 15px;
+    padding:14px;
+    gap: 20px;
+
+}
+.input-box{
+    position: relative;
+    background-color: #d1d5db;
+    color: white;
+    padding: 15px;
+    top: 50%;
+    border-radius: 10px;
+    
+}
+.input-box input{
+    width:100%;
+    padding:14px 14px 14px 45px;
+}
+input:focus{
+    border-color: #353a45;
+    box-shadow:0 0 8px rgba(22, 76, 183, 0.3);
+}
+
+form{
+    display:flex;
+    flex-direction:column;
+    gap:15px;
+    margin-top: 20px;
+    
+}
+.submitbtn{
+    text-decoration: none;
+    background: #3b82f6;
+    color: white;
+    padding: 15px 40px;
+    border-radius: 10px;
+    transition: 0.3s;
+    width: 200px;
+    align-items: center;
+    display: flex;
+    justify-content: center;
+}
+table{
+    width:100%;
+    border-collapse:collapse;
+    margin-top: 20px;
+}
+
+th,td{
+    border:1px solid white;
+    padding:10px;
+    text-align:center;
+}
+
+th{
+    font-weight:bold;
+}
+
+.input_box_login{
+    background-color: #d1d5db;
+    color: white;
+    padding: 15px;
+    border-radius: 10px;
+    margin-top: 15px;
+}
+.inputlogin{
+    width: 90%;
+    border-radius: 10px;
+    border:1px solid #738eb5;
+    font-size: 15px;
+    padding:14px;
+}
+
+.logout-btn{
+    margin-top: 10px;
+}
+.profile-card{
+    background: white;
+    padding: 20px;
+    border-radius: 10px;
+    width: 400px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    color: rgb(1, 1, 1);
+    margin-top: 15px;
+
+}
+
+.profile-card p{
+    font-size: 18px;
+    margin: 12px 0;
+}
+
+.marks-card{
+    background: white;
+    padding: 20px;
+    border-radius: 10px;
+    color: rgb(3, 3, 3);
+    margin-top: 15px;
+}
+
+.marks-card p{
+    font-size: 18px;
+    padding: 10px;
+    border-bottom: 1px solid #ddd;
+}
+
+.attendance-value{
+    font-size: 50px;
+    font-weight: bold;
+    color: green;
+}
